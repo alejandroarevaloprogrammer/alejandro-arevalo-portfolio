@@ -1,0 +1,151 @@
+---
+import ProjectCard from './ProjectCard.astro';
+import { projects } from '../data/projects';
+
+const featuredProject = projects.find((project) => project.featured);
+const secondaryProjects = projects.filter((project) => !project.featured);
+---
+
+<section
+  id="projects"
+  class="relative overflow-hidden border-t border-white/5 bg-slate-950 pt-24 pb-16 sm:pt-28 sm:pb-20 lg:pt-32 lg:pb-24"
+>
+  <!-- Background decoration -->
+  <div class="pointer-events-none absolute inset-0" aria-hidden="true">
+    <div
+      class="absolute -left-64 top-1/3 h-[36rem] w-[36rem] rounded-full bg-blue-600/5 blur-3xl"
+    ></div>
+
+    <div
+      class="absolute -right-72 bottom-0 h-[34rem] w-[34rem] rounded-full border border-blue-500/10"
+    ></div>
+  </div>
+
+  <div class="relative mx-auto max-w-7xl px-6 lg:px-8">
+    <!-- Section heading -->
+    <div class="max-w-2xl">
+      <p
+        class="mb-5 text-sm font-semibold uppercase tracking-[0.2em] text-blue-400"
+      >
+        Projects
+      </p>
+
+      <h2
+        class="text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl"
+      >
+        Selected work and front-end projects.
+      </h2>
+
+      <p class="mt-6 text-lg leading-8 text-slate-400">
+        A selection of websites and web experiences built with different
+        front-end technologies and approaches.
+      </p>
+    </div>
+
+    <!-- Featured project -->
+    {
+      featuredProject && (
+        <article class="group mt-16 overflow-hidden rounded-3xl border border-blue-400/20 bg-white/[0.03]">
+          <div class="grid lg:grid-cols-[1.15fr_0.85fr]">
+            <a
+              href={featuredProject.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="block overflow-hidden border-b border-white/10 lg:border-b-0 lg:border-r"
+              aria-label={`Open ${featuredProject.title} live site in a new tab`}
+            >
+              <img
+                src={featuredProject.image}
+                alt={`${featuredProject.title} project preview`}
+                class="aspect-video size-full object-cover transition duration-500 group-hover:scale-[1.015] lg:aspect-auto"
+              />
+            </a>
+
+            <div class="flex flex-col justify-center p-7 sm:p-9 lg:p-10">
+              <p class="text-xs font-semibold uppercase tracking-[0.2em] text-blue-400">
+                Featured project
+              </p>
+
+              <h3 class="mt-4 text-3xl font-bold tracking-tight text-white">
+                {featuredProject.title}
+              </h3>
+
+              <p class="mt-5 text-base leading-7 text-slate-400">
+                {featuredProject.description}
+              </p>
+
+              <ul class="mt-7 flex flex-wrap gap-2">
+                {
+                  featuredProject.technologies.map((technology) => (
+                    <li class="rounded-md border border-white/10 bg-slate-900/70 px-3 py-1.5 text-xs font-medium text-slate-300">
+                      {technology}
+                    </li>
+                  ))
+                }
+              </ul>
+
+              <div class="mt-8 flex flex-wrap gap-4">
+                <a
+                  href={featuredProject.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center justify-center rounded-xl bg-blue-500 px-5 py-3 text-sm font-semibold text-white transition hover:bg-blue-400 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-400"
+                >
+                  Live Site
+
+                  <svg
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    class="ml-2 size-4"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M7 5h8v8M15 5 6 14"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </a>
+
+                <a
+                  href={featuredProject.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center justify-center rounded-xl border border-white/15 bg-white/5 px-5 py-3 text-sm font-semibold text-white transition hover:border-blue-400/40 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-400"
+                >
+                  GitHub
+
+                  <svg
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    class="ml-2 size-4"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M7 5h8v8M15 5 6 14"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </article>
+      )
+    }
+
+    <!-- Secondary projects -->
+    <div class="mt-8 grid gap-6 md:grid-cols-2">
+      {
+        secondaryProjects.map((project) => (
+          <ProjectCard project={project} />
+        ))
+      }
+    </div>
+  </div>
+</section>

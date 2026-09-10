@@ -1,17 +1,29 @@
 ---
-
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import About from '../components/About.astro';
+import Education from '../components/Education.astro';
+import Skills from '../components/Skills.astro';
+import Projects from '../components/Projects.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout
+  title="Alejandro Arevalo Rojas | Front-End Developer"
+  description="Front-End Developer portfolio of Alejandro Arevalo Rojas, focused on responsive, accessible and user-friendly web experiences."
+>
+  <Header />
+
+  <main>
+    <Hero />
+	<About />
+	<Education />
+	<Skills />
+	<Projects />
+	<Contact />
+  </main>
+
+  <Footer />
+</BaseLayout>

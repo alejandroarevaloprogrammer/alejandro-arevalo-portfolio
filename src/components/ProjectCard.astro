@@ -1,0 +1,100 @@
+---
+import type { Project } from '../data/projects';
+
+interface Props {
+  project: Project;
+}
+
+const { project } = Astro.props;
+---
+
+<article
+  class="group flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/[0.025] transition duration-300 hover:border-blue-400/30 hover:bg-white/[0.04]"
+>
+  <a
+    href={project.liveUrl}
+    target="_blank"
+    rel="noopener noreferrer"
+    class="block aspect-video overflow-hidden border-b border-white/10 bg-slate-900"
+    aria-label={`Open ${project.title} live site in a new tab`}
+  >
+    <img
+      src={project.image}
+      alt={`${project.title} project preview`}
+      class="size-full object-cover transition duration-500 group-hover:scale-[1.02]"
+      loading="lazy"
+    />
+  </a>
+
+  <div class="flex flex-1 flex-col p-6">
+    <h3 class="text-xl font-semibold tracking-tight text-white">
+      {project.title}
+    </h3>
+
+    <p class="mt-4 text-sm leading-7 text-slate-400">
+      {project.description}
+    </p>
+
+    <ul class="mt-6 flex flex-wrap gap-2">
+      {
+        project.technologies.map((technology) => (
+          <li
+            class="rounded-md border border-white/10 bg-slate-900/70 px-3 py-1.5 text-xs font-medium text-slate-300"
+          >
+            {technology}
+          </li>
+        ))
+      }
+    </ul>
+
+    <div class="mt-auto flex flex-wrap gap-x-5 gap-y-3 pt-7">
+      <a
+        href={project.liveUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-1.5 text-sm font-semibold text-blue-400 transition-colors hover:text-blue-300 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-400"
+      >
+        Live Site
+
+        <svg
+          viewBox="0 0 20 20"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          class="size-4"
+          aria-hidden="true"
+        >
+          <path
+            d="M7 5h8v8M15 5 6 14"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </a>
+
+      <a
+        href={project.githubUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-1.5 text-sm font-semibold text-slate-300 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-400"
+      >
+        GitHub
+
+        <svg
+          viewBox="0 0 20 20"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          class="size-4"
+          aria-hidden="true"
+        >
+          <path
+            d="M7 5h8v8M15 5 6 14"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </a>
+    </div>
+  </div>
+</article>
