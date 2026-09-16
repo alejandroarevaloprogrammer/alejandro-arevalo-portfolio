@@ -21,6 +21,8 @@ const { project } = Astro.props;
     <img
       src={project.image}
       alt={`${project.title} project preview`}
+      width={project.imageWidth}
+      height={project.imageHeight}
       class="size-full object-cover transition duration-500 group-hover:scale-[1.02]"
       loading="lazy"
     />

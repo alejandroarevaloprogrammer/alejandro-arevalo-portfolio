@@ -2,6 +2,8 @@ export interface Project {
   title: string;
   description: string;
   image: string;
+  imageWidth: number;
+  imageHeight: number;
   technologies: readonly string[];
   liveUrl: string;
   githubUrl: string;
@@ -14,6 +16,8 @@ export const projects: readonly Project[] = [
     description:
       'A production website for an indie game studio featuring a data-driven architecture, dynamic game pages, playable HTML5 titles and automated deployment.',
     image: '/images/projects/project-gamedanteam.png',
+    imageWidth: 1200,
+    imageHeight: 630,
     technologies: ['React', 'Next.js', 'TypeScript', 'CSS'],
     liveUrl: 'https://gamedanteam.com/',
     githubUrl:
@@ -25,6 +29,8 @@ export const projects: readonly Project[] = [
     description:
       'A multilingual website for a fictional specialty coffee shop, built with Astro, Tailwind CSS and TypeScript. Features reusable components, responsive design, accessibility, SEO and internationalization in Spanish, Catalan and English.',
     image: '/images/projects/project-coffeeshopalejandro.png',
+    imageWidth: 1200,
+    imageHeight: 630,
     technologies: ['Astro', 'Tailwind CSS', 'TypeScript'],
     liveUrl: 'https://coffee-shop-alejandro.netlify.app/es/',
     githubUrl:
@@ -35,6 +41,8 @@ export const projects: readonly Project[] = [
     description:
       'Official website for a Catalan-Czech music duo, featuring multilingual content, dynamic discography, Bandcamp integration and a responsive interface.',
     image: '/images/projects/project-martosandmystik.png',
+    imageWidth: 1200,
+    imageHeight: 630,
     technologies: ['HTML', 'CSS', 'Bootstrap', 'JavaScript'],
     liveUrl:
       'https://alejandroarevaloprogrammer.github.io/martos-and-mystik-web/',
@@ -46,6 +54,8 @@ export const projects: readonly Project[] = [
     description:
       'A responsive portfolio website created for a Unity and gameplay programmer, featuring dynamic project modals, interactive UI elements, animations and multimedia content.',
     image: '/images/projects/project-juancarlossuarez.png',
+    imageWidth: 1200,
+    imageHeight: 630,
     technologies: ['HTML', 'CSS', 'Bootstrap', 'JavaScript'],
     liveUrl:
       'https://alejandroarevaloprogrammer.github.io/juan-carlos-suarez-portfolio/',
@@ -57,6 +67,8 @@ export const projects: readonly Project[] = [
     description:
       'A responsive portfolio website for a freelance pixel artist, featuring project filtering, dynamic galleries, modal navigation and visual-focused project presentation.',
     image: '/images/projects/project-noisechip.png',
+    imageWidth: 1920,
+    imageHeight: 1080,
     technologies: ['HTML', 'CSS', 'Bootstrap', 'JavaScript'],
     liveUrl: 'https://noisechip.com/',
     githubUrl:

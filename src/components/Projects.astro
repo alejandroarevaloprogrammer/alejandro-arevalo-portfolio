@@ -54,6 +54,8 @@ const secondaryProjects = projects.filter((project) => !project.featured);
               <img
                 src={featuredProject.image}
                 alt={`${featuredProject.title} project preview`}
+                width={featuredProject.imageWidth}
+                height={featuredProject.imageHeight}
                 class="aspect-video size-full object-cover transition duration-500 group-hover:scale-[1.015] lg:aspect-auto"
               />
             </a>
