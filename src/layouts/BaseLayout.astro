@@ -41,6 +41,20 @@ const socialImage = `${siteUrl}/images/og-image.png`;
     <meta name="twitter:image:alt" content="Alejandro Arevalo Rojas Front-End Developer portfolio" />
 
     <meta name="theme-color" content="#020617" />
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'Person',
+        name: 'Alejandro Arevalo Rojas',
+        url: siteUrl,
+        jobTitle: 'Front-End Developer',
+        sameAs: [
+          'https://github.com/alejandroarevaloprogrammer',
+          'https://www.linkedin.com/in/alejandro-ar%C3%A9valo-rojas-755335365/',
+        ],
+      })}
+    />
   </head>
 
   <body>
