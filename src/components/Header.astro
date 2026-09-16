@@ -18,6 +18,7 @@ const navItems = [
       href="#top"
       class="group flex items-center gap-3 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-400"
       aria-label="Alejandro Arevalo Rojas - Home"
+      data-home-link
     >
       <span
         class="flex size-10 items-center justify-center rounded-xl border border-blue-500/30 bg-blue-500/10 text-sm font-bold text-blue-400 transition group-hover:border-blue-400/60 group-hover:bg-blue-500/15"
@@ -41,6 +42,7 @@ const navItems = [
               <a
                 href={item.href}
                 class="text-sm font-medium text-slate-300 transition-colors hover:text-blue-400 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-400"
+                data-nav-link
               >
                 {item.label}
               </a>
@@ -138,6 +140,7 @@ const navItems = [
               <a
                 href={item.href}
                 class="block rounded-lg px-3 py-3 text-base font-medium text-slate-300 transition-colors hover:bg-white/5 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-400"
+                data-nav-link
                 data-mobile-link
               >
                 {item.label}
@@ -202,6 +205,21 @@ const navItems = [
   const mobileLinks =
     document.querySelectorAll<HTMLAnchorElement>('[data-mobile-link]');
 
+  const navLinks =
+    document.querySelectorAll<HTMLAnchorElement>('[data-nav-link]');
+
+  const sectionIds = [
+    'about',
+    'education',
+    'skills',
+    'projects',
+    'contact',
+  ];
+
+  const sections = sectionIds
+    .map((id) => document.getElementById(id))
+    .filter((section): section is HTMLElement => section !== null);
+
   const closeMenu = () => {
     mobileMenu?.classList.add('hidden');
     menuIcon?.classList.remove('hidden');
@@ -218,6 +236,53 @@ const navItems = [
 
     menuButton?.setAttribute('aria-expanded', 'true');
     menuButton?.setAttribute('aria-label', 'Close navigation menu');
+  };
+
+  const setActiveSection = (sectionId: string | null) => {
+    navLinks.forEach((link) => {
+      const isActive =
+        sectionId !== null && link.getAttribute('href') === `#${sectionId}`;
+
+      link.classList.toggle('text-blue-400', isActive);
+      link.classList.toggle('text-slate-300', !isActive);
+
+      if (isActive) {
+        link.setAttribute('aria-current', 'location');
+      } else {
+        link.removeAttribute('aria-current');
+      }
+    });
+  };
+
+  const updateActiveSection = () => {
+    const headerOffset = 80;
+    const referencePoint = headerOffset + window.innerHeight * 0.25;
+
+    if (window.scrollY < window.innerHeight * 0.35) {
+      setActiveSection(null);
+      return;
+    }
+
+    const isAtBottom =
+      window.innerHeight + window.scrollY >=
+      document.documentElement.scrollHeight - 2;
+
+    if (isAtBottom) {
+      setActiveSection('contact');
+      return;
+    }
+
+    let activeSection: string | null = null;
+
+    sections.forEach((section) => {
+      const rect = section.getBoundingClientRect();
+
+      if (rect.top <= referencePoint && rect.bottom > referencePoint) {
+        activeSection = section.id;
+      }
+    });
+
+    setActiveSection(activeSection);
   };
 
   menuButton?.addEventListener('click', () => {
@@ -244,5 +309,11 @@ const navItems = [
     if (window.innerWidth >= 1024) {
       closeMenu();
     }
+
+    updateActiveSection();
   });
+
+  window.addEventListener('scroll', updateActiveSection, { passive: true });
+
+  updateActiveSection();
 </script>
