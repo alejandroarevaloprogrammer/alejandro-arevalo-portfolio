@@ -33,7 +33,7 @@ const navItems = [
       </span>
     </a>
 
-    <nav class="hidden md:block" aria-label="Main navigation">
+    <nav class="hidden lg:block" aria-label="Main navigation">
       <ul class="flex items-center gap-8">
         {
           navItems.map((item) => (
@@ -50,7 +50,7 @@ const navItems = [
       </ul>
     </nav>
 
-    <div class="hidden items-center gap-2 md:flex">
+    <div class="hidden items-center gap-2 lg:flex">
       <a
         href="https://github.com/alejandroarevaloprogrammer"
         target="_blank"
@@ -88,7 +88,7 @@ const navItems = [
 
     <button
       type="button"
-      class="flex size-10 items-center justify-center rounded-lg border border-white/10 text-slate-300 transition-colors hover:border-blue-400/40 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-400 md:hidden"
+      class="flex size-10 items-center justify-center rounded-lg border border-white/10 text-slate-300 transition-colors hover:border-blue-400/40 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-400 lg:hidden"
       aria-label="Open navigation menu"
       aria-expanded="false"
       aria-controls="mobile-menu"
@@ -127,7 +127,7 @@ const navItems = [
 
   <div
     id="mobile-menu"
-    class="hidden border-t border-white/10 bg-slate-950/95 px-6 py-6 backdrop-blur-xl md:hidden"
+    class="hidden border-t border-white/10 bg-slate-950/95 px-6 py-6 backdrop-blur-xl lg:hidden"
     data-mobile-menu
   >
     <nav aria-label="Mobile navigation">
@@ -241,7 +241,7 @@ const navItems = [
   });
 
   window.addEventListener('resize', () => {
-    if (window.innerWidth >= 768) {
+    if (window.innerWidth >= 1024) {
       closeMenu();
     }
   });
