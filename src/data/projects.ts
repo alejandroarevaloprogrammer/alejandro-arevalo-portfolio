@@ -2,13 +2,13 @@ export interface Project {
   title: string;
   description: string;
   image: string;
-  technologies: string[];
+  technologies: readonly string[];
   liveUrl: string;
   githubUrl: string;
   featured?: boolean;
 }
 
-export const projects: Project[] = [
+export const projects: readonly Project[] = [
   {
     title: 'GameDan Team',
     description:
@@ -20,7 +20,6 @@ export const projects: Project[] = [
       'https://github.com/alejandroarevaloprogrammer/gamedan-team-web',
     featured: true,
   },
-
   {
     title: 'Café Alejandro',
     description:
@@ -31,7 +30,6 @@ export const projects: Project[] = [
     githubUrl:
       'https://github.com/alejandroarevaloprogrammer/coffee-shop-alejandro-web',
   },
-
   {
     title: 'Martos & Mystik',
     description:
@@ -43,7 +41,6 @@ export const projects: Project[] = [
     githubUrl:
       'https://github.com/alejandroarevaloprogrammer/martos-and-mystik-web',
   },
-
   {
     title: 'Juan Carlos Suarez Portfolio',
     description:
@@ -55,7 +52,6 @@ export const projects: Project[] = [
     githubUrl:
       'https://github.com/alejandroarevaloprogrammer/juan-carlos-suarez-portfolio',
   },
-
   {
     title: 'Noisechip Portfolio',
     description:

@@ -1,7 +1,13 @@
 ---
 import { skills } from '../data/skills';
+import type { SkillCategory } from '../data/skills';
 
-const groups = [
+interface SkillGroup {
+  title: SkillCategory;
+  description: string;
+}
+
+const groups: readonly SkillGroup[] = [
   {
     title: 'Core',
     description: 'The foundation of my front-end work.',
@@ -14,7 +20,7 @@ const groups = [
     title: 'Styling',
     description: 'Tools for creating responsive and consistent interfaces.',
   },
-] as const;
+];
 ---
 
 <section
