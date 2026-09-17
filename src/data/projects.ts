@@ -27,7 +27,7 @@ export const projects: readonly Project[] = [
   {
     title: 'Café Alejandro',
     description:
-      'A multilingual website for a fictional specialty coffee shop, built with Astro, Tailwind CSS and TypeScript. Features reusable components, responsive design, accessibility, SEO and internationalization in Spanish, Catalan and English.',
+      'A multilingual website for a fictional specialty coffee shop, featuring reusable components, responsive design, accessibility, SEO and internationalization in Spanish, Catalan and English.',
     image: '/images/projects/project-coffeeshopalejandro.png',
     imageWidth: 1200,
     imageHeight: 630,
