@@ -203,7 +203,7 @@
       try {
         const formData = new FormData(form);
 
-        const response = await fetch('/contact-api', {
+        const response = await fetch('/contact-api/', {
           method: 'POST',
           body: formData,
           headers: {

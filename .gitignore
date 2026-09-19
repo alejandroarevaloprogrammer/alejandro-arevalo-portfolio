@@ -23,3 +23,9 @@ pnpm-debug.log*
 
 # JetBrains settings
 .idea/
+
+# private backend configuration
+backend/config.php
+
+# PHP dependencies
+backend/vendor/
