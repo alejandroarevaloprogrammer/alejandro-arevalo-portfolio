@@ -44,13 +44,6 @@ jobs:
           printf '%s\n' 'sxb1plzcpnl506121.prod.sxb1.secureserver.net ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMd3fjhYH+T1YUljOQaGogcItolgHs4ENi1FGP7Zb4IX' > ~/.ssh/known_hosts
           chmod 600 ~/.ssh/known_hosts
 
-      - name: Test SSH connectivity
-        env:
-          SSH_HOST: ${{ secrets.SSH_HOST }}
-        run: |
-          echo "Testing TCP connection to SSH server..."
-          timeout 15 bash -c "cat < /dev/null > /dev/tcp/$SSH_HOST/22"
-
       - name: Deploy frontend
         env:
           SSH_HOST: ${{ secrets.SSH_HOST }}
