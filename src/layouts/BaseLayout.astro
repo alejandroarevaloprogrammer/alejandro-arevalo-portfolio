@@ -36,7 +36,8 @@ const socialImage = `${siteUrl}/images/og-image-2026.png`;
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalUrl} />
-    <meta property="og:image" content={socialImage} />
+    <meta property="og:image" itemprop="image" content={socialImage} />
+    <link itemprop="thumbnailUrl" href={socialImage} />
     <meta property="og:image:secure_url" content={socialImage} />
     <meta property="og:image:type" content="image/png" />
     <meta property="og:image:width" content="1200" />
