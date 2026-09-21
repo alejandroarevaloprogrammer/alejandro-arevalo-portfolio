@@ -32,7 +32,7 @@ export const projects: readonly Project[] = [
     imageWidth: 1200,
     imageHeight: 630,
     technologies: ['Astro', 'Tailwind CSS', 'TypeScript'],
-    liveUrl: 'https://coffee-shop-alejandro.netlify.app/',
+    liveUrl: 'https://coffee-shop-alejandro.netlify.app/en/',
     githubUrl:
       'https://github.com/alejandroarevaloprogrammer/coffee-shop-alejandro-web',
   },
