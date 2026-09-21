@@ -2,11 +2,12 @@
 # Apache Configuration
 # =================================================
 
-# Force HTTPS
+# Force HTTPS and canonical non-www domain
 RewriteEngine On
 
-RewriteCond %{HTTPS} !=on
-RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+RewriteCond %{HTTPS} !=on [OR]
+RewriteCond %{HTTP_HOST} ^www\.alejandroarevalorojas\.com$ [NC]
+RewriteRule ^ https://alejandroarevalorojas.com%{REQUEST_URI} [L,R=301]
 
 # Remove trailing slash from non-directory URLs
 RewriteCond %{REQUEST_FILENAME} !-d
