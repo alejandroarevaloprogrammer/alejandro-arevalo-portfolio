@@ -12,8 +12,6 @@ The portfolio presents a selection of web development projects built with differ
 
 https://alejandroarevalorojas.com
 
-> The new version of the portfolio is currently under development and has not yet been deployed to production.
-
 ---
 
 ## Overview
@@ -52,6 +50,7 @@ The portfolio includes information about my background, education, technical ski
 - Server-side form validation
 - Anti-spam protection
 - Authenticated email delivery
+- Automated production deployment
 
 ---
 
@@ -76,7 +75,10 @@ The portfolio includes information about my background, education, technical ski
 
 - Git
 - GitHub
+- GitHub Actions
 - Apache
+- SSH
+- rsync
 - GoDaddy Web Hosting
 
 ---
@@ -124,6 +126,10 @@ backend/
 ├── composer.json
 ├── composer.lock
 └── contact.php
+
+.github/
+└── workflows/
+    └── deploy.yml
 ```
 
 The project separates reusable UI components, structured content, layout logic, global styles, static assets and backend functionality.
@@ -183,7 +189,7 @@ The project includes:
 - Responsive and readable typography
 - Reduced-motion support through `prefers-reduced-motion`
 
-Accessibility was also reviewed during development using Lighthouse.
+Accessibility was reviewed during development and production testing using Lighthouse.
 
 ---
 
@@ -205,6 +211,7 @@ The project includes:
 - Theme color
 - Favicons and application icons
 - Social sharing image
+- Canonical HTTPS and non-www redirects
 
 The portfolio uses structured person information to provide additional context to search engines.
 
@@ -226,7 +233,14 @@ Performance considerations include:
 - HTTP compression configuration
 - Reduced-motion support
 
-The project was reviewed with Lighthouse during development for performance, accessibility, best practices and SEO.
+The production website was tested with Lighthouse in a clean mobile test environment and achieved:
+
+- **Performance: 100**
+- **Accessibility: 100**
+- **Best Practices: 100**
+- **SEO: 100**
+
+Lighthouse results can vary depending on the browser, hardware, network conditions and installed extensions.
 
 ---
 
@@ -243,12 +257,36 @@ Astro copies this file into the production build.
 The configuration includes:
 
 - HTTPS redirection
+- Canonical non-www redirection
 - URL normalization
 - Browser caching
 - Compression
 - Security headers
 
 Keeping this configuration inside the repository makes the production server behavior part of the version-controlled project configuration.
+
+---
+
+## Automated Deployment
+
+The production website is automatically deployed through **GitHub Actions** whenever changes are pushed to the `main` branch.
+
+The deployment workflow:
+
+1. Checks out the repository.
+2. Sets up Node.js.
+3. Installs frontend dependencies.
+4. Builds the static Astro website.
+5. Sets up PHP and Composer.
+6. Installs production backend dependencies.
+7. Establishes a secure SSH connection to the hosting server.
+8. Deploys the generated frontend with `rsync`.
+9. Deploys the PHP contact endpoint.
+10. Deploys the required backend dependencies.
+
+The frontend is synchronized with the production web directory while server-specific files and private configuration are kept separate from the public repository.
+
+Deployment credentials are stored securely using GitHub Actions secrets and are never committed to the repository.
 
 ---
 
@@ -346,9 +384,11 @@ Some of the main areas I worked on include:
 - Sending authenticated email with PHPMailer
 - Configuring SPF, DKIM and DMARC for domain email
 - Separating private server configuration from public source code
-- Testing accessibility, performance, SEO and responsive behavior
+- Creating an automated CI/CD deployment workflow with GitHub Actions
+- Deploying securely through SSH and rsync
+- Testing accessibility, performance, SEO and responsive behavior in production
 
-The project also helped me better understand how frontend development, backend form handling, email authentication, hosting and production configuration work together in a real website.
+The project also helped me better understand how frontend development, backend form handling, email authentication, automated deployment, hosting and production configuration work together in a real website.
 
 ---
 
@@ -367,6 +407,10 @@ LinkedIn: https://www.linkedin.com/in/alejandro-ar%C3%A9valo-rojas-755335365/
 
 ## License
 
-This repository is publicly available as part of my Front-End Developer portfolio.
+Copyright © 2026 Alejandro Arevalo Rojas.
 
-Licensing terms for the source code and portfolio content will be defined before the production release.
+This repository is publicly available for portfolio and reference purposes.
+
+The source code, design and portfolio content may be viewed for learning and evaluation purposes, but may not be copied, redistributed, republished or used in other projects without permission.
+
+All rights reserved.
