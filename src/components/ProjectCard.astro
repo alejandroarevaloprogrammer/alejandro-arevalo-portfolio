@@ -1,3 +1,4 @@
+
 ---
 import type { Project } from '../data/projects';
 
@@ -15,7 +16,7 @@ const { project } = Astro.props;
     href={project.liveUrl}
     target="_blank"
     rel="noopener noreferrer"
-    class="block aspect-video overflow-hidden border-b border-white/10 bg-slate-900"
+    class="block aspect-[40/21] overflow-hidden border-b border-white/10 bg-slate-900"
     aria-label={`Open ${project.title} live site in a new tab`}
   >
     <img
@@ -23,7 +24,7 @@ const { project } = Astro.props;
       alt={`${project.title} project preview`}
       width={project.imageWidth}
       height={project.imageHeight}
-      class="size-full object-cover transition duration-500 group-hover:scale-[1.02]"
+      class="size-full object-contain transition duration-500 group-hover:scale-[1.02]"
       loading="lazy"
     />
   </a>

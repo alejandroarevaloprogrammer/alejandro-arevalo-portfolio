@@ -12,6 +12,19 @@ export interface Project {
 
 export const projects: readonly Project[] = [
   {
+    title: 'Noisechip Portfolio',
+    description:
+      'A modern portfolio website for a freelance pixel artist, built with Next.js and featuring responsive layouts, project galleries, interactive lightboxes and dark/light themes.',
+    image: '/images/projects/project-noisechip.png',
+    imageWidth: 1920,
+    imageHeight: 1080,
+    technologies: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS'],
+    liveUrl: 'https://noisechip.com/',
+    githubUrl:
+      'https://github.com/alejandroarevaloprogrammer/noisechip-portfolio',
+    featured: true,
+  },
+  {
     title: 'GameDan Team',
     description:
       'A production website for an indie game studio featuring a data-driven architecture, dynamic game pages, playable HTML5 titles and automated deployment.',
@@ -22,7 +35,6 @@ export const projects: readonly Project[] = [
     liveUrl: 'https://gamedanteam.com/',
     githubUrl:
       'https://github.com/alejandroarevaloprogrammer/gamedan-team-web',
-    featured: true,
   },
   {
     title: 'Café Alejandro',
@@ -31,7 +43,7 @@ export const projects: readonly Project[] = [
     image: '/images/projects/project-coffeeshopalejandro.png',
     imageWidth: 1200,
     imageHeight: 630,
-    technologies: ['Astro', 'Tailwind CSS', 'TypeScript'],
+    technologies: ['Astro', 'TypeScript', 'Tailwind CSS'],
     liveUrl: 'https://coffee-shop-alejandro.netlify.app/en/',
     githubUrl:
       'https://github.com/alejandroarevaloprogrammer/coffee-shop-alejandro-web',
@@ -43,7 +55,7 @@ export const projects: readonly Project[] = [
     image: '/images/projects/project-martosandmystik.png',
     imageWidth: 1200,
     imageHeight: 630,
-    technologies: ['HTML', 'CSS', 'Bootstrap', 'JavaScript'],
+    technologies: ['HTML', 'JavaScript', 'CSS', 'Bootstrap'],
     liveUrl:
       'https://alejandroarevaloprogrammer.github.io/martos-and-mystik-web/',
     githubUrl:
@@ -56,22 +68,10 @@ export const projects: readonly Project[] = [
     image: '/images/projects/project-juancarlossuarez.png',
     imageWidth: 1200,
     imageHeight: 630,
-    technologies: ['HTML', 'CSS', 'Bootstrap', 'JavaScript'],
+    technologies: ['HTML', 'JavaScript', 'CSS', 'Bootstrap'],
     liveUrl:
       'https://alejandroarevaloprogrammer.github.io/juan-carlos-suarez-portfolio/',
     githubUrl:
       'https://github.com/alejandroarevaloprogrammer/juan-carlos-suarez-portfolio',
-  },
-  {
-    title: 'Noisechip Portfolio',
-    description:
-      'A responsive portfolio website for a freelance pixel artist, featuring project filtering, dynamic galleries, modal navigation and visual-focused project presentation.',
-    image: '/images/projects/project-noisechip.png',
-    imageWidth: 1920,
-    imageHeight: 1080,
-    technologies: ['HTML', 'CSS', 'Bootstrap', 'JavaScript'],
-    liveUrl: 'https://noisechip.com/',
-    githubUrl:
-      'https://github.com/alejandroarevaloprogrammer/noisechip-portfolio',
   },
 ];
