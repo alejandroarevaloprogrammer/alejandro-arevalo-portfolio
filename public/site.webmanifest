@@ -3,6 +3,7 @@
   "short_name": "Alejandro",
   "description": "Front-End Developer Portfolio",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#020617",
   "theme_color": "#020617",
