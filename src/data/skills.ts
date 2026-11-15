@@ -1,4 +1,9 @@
-export type SkillCategory = 'Core' | 'Frameworks' | 'Styling';
+
+export type SkillCategory =
+  | 'Core'
+  | 'Frameworks'
+  | 'Styling'
+  | 'Automation & AI';
 
 export interface Skill {
   name: string;
@@ -15,4 +20,6 @@ export const skills: readonly Skill[] = [
   { name: 'Astro', category: 'Frameworks' },
   { name: 'Tailwind CSS', category: 'Styling' },
   { name: 'Bootstrap 5', category: 'Styling' },
+  { name: 'n8n', category: 'Automation & AI' },
+  { name: 'MCP', category: 'Automation & AI' },
 ];

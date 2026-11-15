@@ -1,3 +1,4 @@
+
 ---
 import { skills } from '../data/skills';
 import type { SkillCategory } from '../data/skills';
@@ -19,6 +20,10 @@ const groups: readonly SkillGroup[] = [
   {
     title: 'Styling',
     description: 'Tools for creating responsive and consistent interfaces.',
+  },
+  {
+    title: 'Automation & AI',
+    description: 'Tools for workflow automation and AI integrations.',
   },
 ];
 ---
@@ -48,12 +53,13 @@ const groups: readonly SkillGroup[] = [
       </h2>
 
       <p class="mt-6 text-lg leading-8 text-slate-400">
-        A focused front-end stack for building responsive, accessible and
-        maintainable interfaces.
+        A front-end focused skill set for building responsive, accessible and
+        maintainable web experiences, complemented by workflow automation and
+        AI integrations.
       </p>
     </div>
 
-    <div class="mt-16 grid gap-6 lg:grid-cols-3">
+    <div class="mt-16 grid gap-6 lg:grid-cols-2">
       {
         groups.map((group) => {
           const groupSkills = skills.filter(
@@ -80,9 +86,7 @@ const groups: readonly SkillGroup[] = [
               <ul class="mt-8 flex flex-wrap gap-3">
                 {
                   groupSkills.map((skill) => (
-                    <li
-                      class="rounded-lg border border-white/10 bg-slate-900/70 px-4 py-2.5 text-sm font-semibold text-slate-200"
-                    >
+                    <li class="rounded-lg border border-white/10 bg-slate-900/70 px-4 py-2.5 text-sm font-semibold text-slate-200">
                       {skill.name}
                     </li>
                   ))

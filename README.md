@@ -22,7 +22,7 @@ The website was rebuilt with Astro and Tailwind CSS to replace the previous Boot
 
 Rather than using a large client-side framework for a primarily content-driven website, Astro was selected to keep the frontend lightweight while still providing reusable components, structured TypeScript data and a scalable project organization.
 
-The portfolio includes information about my background, education, technical skills and selected web development projects, together with a production contact system.
+The portfolio includes information about my background, education, professional experience, technical skills and selected web development projects, together with a production contact system.
 
 ---
 
@@ -31,6 +31,7 @@ The portfolio includes information about my background, education, technical ski
 - Responsive single-page portfolio
 - Reusable Astro components
 - Structured project and skills data with TypeScript
+- Education, courses and professional experience sections
 - Responsive desktop, tablet and mobile navigation
 - Active navigation section highlighting
 - Accessible mobile navigation
@@ -93,6 +94,7 @@ src/
 │   ├── About.astro
 │   ├── Contact.astro
 │   ├── Education.astro
+│   ├── Experience.astro
 │   ├── Footer.astro
 │   ├── Header.astro
 │   ├── Hero.astro
@@ -134,7 +136,7 @@ backend/
 
 The project separates reusable UI components, structured content, layout logic, global styles, static assets and backend functionality.
 
-Project and skill information is stored separately from the components responsible for rendering it, making the content easier to maintain and update.
+Project and skill information is stored separately from the components responsible for rendering it, making the content easier to maintain and update. The skills section also presents complementary knowledge in workflow automation and AI integrations, including n8n and MCP (Model Context Protocol).
 
 ---
 
